@@ -22,10 +22,13 @@
   width: 120px;
   height: 120px;
   border-radius: 60px;
+  margin-bottom: 20px;
 }
 
 .container h1 {
   color: #fff;
+  font-size: 36px;
+  text-align: center;
 }
 
 .container svg {
@@ -50,4 +53,22 @@
   width: 100vw;
   height: 100vh;
   min-height: 100vh;
+}
+
+@media (max-width: 420px) {
+  .container h1 {
+    font-size: 28px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .container h1 {
+    font-size: 24px;
+  }
+
+  .container svg {
+    width: 36px;
+    height: 36px;
+  }
 }

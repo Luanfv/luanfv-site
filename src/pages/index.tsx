@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Particles from 'react-tsparticles';
 import { AiFillLinkedin, AiFillGithub, AiFillMediumCircle } from "react-icons/ai";
+import Typewriter from 'typewriter-effect';
 
 import styles from '../styles/Home.module.css'
 
@@ -28,7 +29,24 @@ const Home: NextPage = () => {
       <main>
         <img src="https://avatars.githubusercontent.com/u/42809136?v=4" alt="Luan França Vieira" />
 
-        <h1 style={{ color: '#fff' }}>Olá, eu sou o Luan</h1>
+        <h1>
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString('Olá, eu sou o Luan')
+                .pauseFor(2500)
+                .deleteChars(6)
+                .typeString('desenvolvedor front-end')
+                .pauseFor(2500)
+                .deleteChars(9)
+                .typeString('mobile')
+                .pauseFor(2500)
+                .deleteChars(20)
+                .typeString('o Luan')
+                .start();
+            }}
+          />
+        </h1>
 
         <section>
           <a href="https://github.com/luanfv" target="_blank" rel="noreferrer">
