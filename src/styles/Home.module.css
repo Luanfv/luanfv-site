@@ -23,6 +23,7 @@
   height: 120px;
   border-radius: 60px;
   margin-bottom: 20px;
+  box-shadow: 0 0 2px #5873e8;
 }
 
 .container h1 {
