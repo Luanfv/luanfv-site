@@ -9,13 +9,6 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.particles}>
-        <Particles
-          id="tsparticles"
-          url="/particles.json"
-        />
-      </div>
-
       <Head>
         <title>Desenvolvedor | Luan França Vieira</title>
         <meta name="description" content="Luan França Vieira" />
@@ -25,6 +18,13 @@ const Home: NextPage = () => {
         <meta name="description" content="mobile developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div className={styles.particles}>
+        <Particles
+          id="tsparticles"
+          url="/particles.json"
+        />
+      </div>
 
       <main>
         <img src="https://avatars.githubusercontent.com/u/42809136?v=4" alt="Luan França Vieira" />
