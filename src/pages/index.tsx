@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Particles from 'react-tsparticles';
-import { AiFillLinkedin, AiFillGithub, AiFillMediumCircle } from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub, AiFillMediumCircle } from 'react-icons/ai';
+import { IoLogoGooglePlaystore } from 'react-icons/io5';
 import Typewriter from 'typewriter-effect';
 
 import styles from '../styles/Home.module.css'
@@ -31,18 +32,16 @@ const Home: NextPage = () => {
 
         <h1>
           <Typewriter
+            options={{
+              loop: true,
+            }}
             onInit={(typewriter) => {
               typewriter
                 .typeString('Olá, eu sou o Luan')
-                .pauseFor(2500)
+                .pauseFor(5000)
                 .deleteChars(6)
-                .typeString('desenvolvedor front-end')
-                .pauseFor(2500)
-                .deleteChars(9)
-                .typeString('mobile')
-                .pauseFor(2500)
-                .deleteChars(20)
-                .typeString('o Luan')
+                .typeString('desenvolvedor mobile')
+                .pauseFor(5000)
                 .start();
             }}
           />
@@ -59,6 +58,10 @@ const Home: NextPage = () => {
 
           <a href="https://medium.com/@luanfv" target="_blank" rel="noreferrer">
             <AiFillMediumCircle size={46} color="#fff" />
+          </a>
+
+          <a href="https://play.google.com/store/apps/developer?id=luanfv" target="_blank" rel="noreferrer">
+            <IoLogoGooglePlaystore size={42} color="#fff" />
           </a>
         </section>
       </main>
