@@ -40,7 +40,10 @@ const Home: NextPage = () => {
                 .typeString('Olá, eu sou o Luan')
                 .pauseFor(5000)
                 .deleteChars(6)
-                .typeString('desenvolvedor mobile')
+                .typeString('desenvolvedor front-end')
+                .pauseFor(5000)
+                .deleteChars(9)
+                .typeString('mobile')
                 .pauseFor(5000)
                 .start();
             }}
