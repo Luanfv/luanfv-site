@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
 import { Inter } from '@next/font/google'
-import { SiJavascript, SiReact, SiNodedotjs, SiTypescript, SiGit, SiGoogleplay, SiAppstore, SiGithub, SiLinkedin  } from 'react-icons/si'
+import { SiJavascript, SiReact, SiNodedotjs, SiTypescript, SiGit, SiGithub, SiLinkedin, SiNestjs, SiMicrosoftazure  } from 'react-icons/si'
 
 import styles from '../styles/Home.module.css'
 
@@ -22,7 +22,7 @@ export default function Home({ avatar, name, bio, github, location, username }: 
   return (
     <>
       <Head>
-        <title>{name}</title>
+        <title>{`Dev - ${name}`}</title>
         <meta name="name" content={name} />
         <meta name="description" content={bio} />
         <meta name="github" content={github} />
@@ -39,7 +39,7 @@ export default function Home({ avatar, name, bio, github, location, username }: 
               Olá 👋, <br />
               meu nome é <br />
               <strong>{name}</strong>, <br />
-              sou JavaScript Developer
+              sou Full Stack
             </h1>
 
             <div>
@@ -75,11 +75,12 @@ export default function Home({ avatar, name, bio, github, location, username }: 
           <div className={`${styles.stack}`}>
             <SiJavascript size={60} title="JavaScript" />
             <SiTypescript size={60} title="TypeScript" />
+            <SiNodedotjs size={60} title="NodeJS | Noded.js" />
+            <SiNestjs size={60} title="NestJS | Nest.js" />
             <SiReact size={60} title="React | React Native" />
-            <SiNodedotjs size={60} title="NodeJS" />
+            <SiMicrosoftazure size={60} title="Azure" />
+            <SiGithub size={60} title="GitHub" />
             <SiGit size={60} title="Git" />
-            <SiGoogleplay size={60} title="Google Play" />
-            <SiAppstore size={60} title="App Store" />
           </div>
         </section>
       </main>
@@ -88,16 +89,20 @@ export default function Home({ avatar, name, bio, github, location, username }: 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data: response } = await axios.get('https://api.github.com/users/luanfv');
-
+  const { data: profile } = await axios.get('https://api.github.com/users/luanfv');
+  const { data: repo } = await axios.get('https://api.github.com/repos/luanfv/Luanfv/contents/README.md');
+  const markdwon = atob(repo.content);
+  const match = markdwon.match(/### Sobre mim([\s\S]*?)(?=###|\n\n)/);
+  const description = !!match && !!match[1] ? match[1].trim() : profile.bio;
+  
   return {
     props: {
-      avatar: response.avatar_url,
-      name: response.name,
-      bio: response.bio,
-      username: response.login,
-      location: response.location,
-      github: response.html_url,
+      avatar: profile.avatar_url,
+      name: profile.name,
+      bio: description,
+      username: profile.login,
+      location: profile.location,
+      github: profile.html_url,
     },
     revalidate: 24 * 60,
   };

@@ -72,7 +72,7 @@
 }
 
 .section label {
-  text-align: center;
+  text-align: justify;
   font-size: 18px;
 }
 
@@ -91,6 +91,7 @@
 
 .section .stack svg:hover {
   color: #00C0FD;
+  cursor: pointer;
 }
 
 @media (max-width: 720px) {
